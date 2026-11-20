@@ -97,21 +97,27 @@ textarea:focus-visible,
 .site-header {
   background: #fff;
   border-bottom: 1px solid var(--et-border);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
-.site-header .navbar { min-height: 80px; }
+.site-header .navbar { min-height: 56px; padding-top: .25rem; padding-bottom: .25rem; }
+.site-header .logo { font-size: 1rem; }
 .site-header .nav-link {
   color: var(--et-graphite);
   font-weight: 500;
-  padding: .75rem 1rem;
+  padding: .5rem .75rem;
   border-bottom: 3px solid transparent;
 }
+/* Keep anchor targets from hiding under the fixed header */
+html { scroll-padding-top: 72px; }
 .site-header .nav-link:hover { color: var(--et-graphite); border-bottom-color: var(--et-border); }
 .site-header .nav-link.active,
 .site-header .nav-link[aria-current="page"] {
   color: var(--et-graphite);
   border-bottom-color: var(--et-teal);
 }
-.navbar-toggler { border: 2px solid var(--et-graphite); padding: .5rem .75rem; }
+.navbar-toggler { border: 2px solid var(--et-graphite); padding: .375rem .625rem; }
 
 /* ---------- Buttons ---------- */
 .btn-et {
@@ -394,3 +400,13 @@ textarea:focus-visible,
 }
 .site-footer .copy { color: var(--et-ivory); }
 .footer-nav { gap: .25rem 2rem; }
+
+/* Previous / Next on product pages */
+.tee-pager { display: flex; gap: .75rem; }
+.pager-link {
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 44px; padding: .5rem 1rem;
+  border: 2px solid var(--et-graphite); border-radius: 8px;
+  font-weight: 600; text-decoration: none; color: var(--et-graphite);
+}
+.pager-link:hover { background: var(--et-graphite); color: #fff; }

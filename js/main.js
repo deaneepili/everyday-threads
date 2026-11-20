@@ -144,3 +144,18 @@ if (mainPhoto) {
     });
   });
 }
+
+/* Home page: highlight "Shop" in the header while the tees section is on screen */
+(function () {
+  var shop = document.getElementById('shop');
+  var links = document.querySelectorAll('.site-header .nav-link');
+  if (!shop || !links.length || !('IntersectionObserver' in window)) return;
+  var home = links[0], shopLink = links[1];
+  function set(on) {
+    var a = on ? shopLink : home, b = on ? home : shopLink;
+    a.classList.add('active'); a.setAttribute('aria-current', 'page');
+    b.classList.remove('active'); b.removeAttribute('aria-current');
+  }
+  new IntersectionObserver(function (e) { set(e[0].isIntersecting); },
+    { rootMargin: '-45% 0px -45% 0px' }).observe(shop);
+})();
